@@ -1,0 +1,1301 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pulso 3D · Boletín semanal en español sobre fabricación aditiva</title>
+  <meta name="description" content="Boletín semanal en español sobre impresión 3D y fabricación aditiva para makers avanzados, diseñadores, ingenieros y talleres. Qué cambió, qué está demostrado y cómo llevarlo al taller.">
+  <style>
+    @font-face {
+  font-family: 'Exo 2';
+  src: url('assets/fonts/Exo2-VF.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Chakra Petch';
+  src: url('assets/fonts/ChakraPetch-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Chakra Petch';
+  src: url('assets/fonts/ChakraPetch-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Chakra Petch';
+  src: url('assets/fonts/ChakraPetch-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Chakra Petch';
+  src: url('assets/fonts/ChakraPetch-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('assets/fonts/PlusJakartaSans-VF.ttf') format('truetype');
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('assets/fonts/PlusJakartaSans-Italic-VF.ttf') format('truetype');
+  font-weight: 200 800;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('assets/fonts/JetBrainsMono-VF.ttf') format('truetype');
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('assets/fonts/JetBrainsMono-Italic-VF.ttf') format('truetype');
+  font-weight: 100 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  --paper: #F6F5F1;
+  --surface: #FFFFFF;
+  --surface-alt: #EFECE6;
+  --ink: #1D2321;
+  --muted: #535F5A;
+  --accent: #16624E;
+  --accent-soft: #E5EFEA;
+  --amber: #8A5311;
+  --amber-soft: #FAF1E2;
+  --amber-border: #D9A45B;
+  --blue: #2B4C91;
+  --blue-soft: #EAF0F9;
+  --line: #D5DBD5;
+
+  /* Jerarquía de fuentes OFL para impresión 3D y manufactura aditiva */
+  --font-brand: 'Exo 2', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Chakra Petch', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 16.5px;
+  line-height: 1.68;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 32px 72px;
+}
+
+/* Cabecera editorial */
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+  padding-bottom: 18px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 28px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--accent);
+}
+.brand-name {
+  font-family: var(--font-brand);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.brand-sub {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--muted);
+  font-weight: 500;
+  margin-top: 2px;
+}
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: var(--amber-soft);
+  color: var(--amber);
+  border: 1px solid var(--amber-border);
+}
+.status-pill--ok {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Titulares y portada */
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 10px;
+}
+.hero h2 {
+  font-family: var(--font-heading);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.16;
+  letter-spacing: -0.015em;
+  margin: 0 0 18px;
+  text-wrap: balance;
+}
+.hero-meta {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.55;
+  padding: 12px 16px;
+  background: var(--surface-alt);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  margin: 0 0 20px;
+}
+.hero-lead p {
+  font-size: 17.5px;
+  line-height: 1.65;
+  margin: 0 0 18px;
+}
+
+/* En un vistazo (3 tarjetas) */
+.vistazo {
+  margin: 28px 0 34px;
+}
+.vistazo-titulo {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+.vistazo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.vistazo-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 14px;
+  line-height: 1.52;
+}
+.vistazo-card:nth-child(2) { border-top-color: var(--amber); }
+.vistazo-card:nth-child(3) { border-top-color: var(--blue); }
+.vistazo-tag {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.vistazo-card:nth-child(2) .vistazo-tag { color: var(--amber); }
+.vistazo-card:nth-child(3) .vistazo-tag { color: var(--blue); }
+
+/* Índice rápido */
+.toc {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 28px 0 36px;
+}
+.toc-title {
+  font-family: var(--font-heading);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 10px;
+}
+.toc-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 18px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+}
+.toc-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0;
+}
+.toc-list a {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 500;
+}
+.toc-list a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+.toc-area {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* Chips numerados (estética técnica cuadrada 4px) */
+.chip {
+  --c: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 4px;
+  background: var(--c);
+  color: #FFFFFF;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  flex-shrink: 0;
+  border: 2px solid var(--c);
+}
+a.chip:hover {
+  filter: brightness(0.9);
+  color: #FFFFFF;
+}
+.chip--hueco {
+  background: var(--surface);
+  color: var(--c);
+}
+a.chip--hueco:hover {
+  background: var(--c);
+  color: #FFFFFF;
+}
+.chip--sm {
+  width: 22px;
+  height: 22px;
+  font-size: 11px;
+}
+
+/* Gráficos G1 y G2 */
+.infografias {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 22px;
+  margin: 28px 0 36px;
+}
+figure.g {
+  margin: 0;
+  min-width: 0;
+  max-width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+figure.g figcaption {
+  margin-bottom: 14px;
+}
+.g-kicker {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 3px;
+}
+figure.g figcaption > strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 19px;
+  line-height: 1.25;
+  margin-bottom: 4px;
+}
+.g-nota {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.48;
+}
+
+.g1-marco {
+  position: relative;
+  overflow-x: auto;
+}
+.g1-eje {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.g1-eje-y { margin-bottom: 6px; }
+.g1-eje-x { text-align: right; margin-top: 6px; }
+
+.g1-grid {
+  display: grid;
+  grid-template-columns: 140px repeat(5, minmax(74px, 1fr));
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  font-size: 12.5px;
+}
+.g1-fila {
+  display: contents;
+}
+.g1-y, .g1-celda, .g1-x {
+  padding: 7px 8px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+}
+.g1-y {
+  background: var(--surface-alt);
+  font-weight: 600;
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.25;
+}
+.g1-celda {
+  justify-content: center;
+  gap: 6px;
+  min-height: 38px;
+  background: var(--surface);
+}
+.g1-ejex .g1-y, .g1-x {
+  background: var(--surface-alt);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  justify-content: center;
+  text-align: center;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.g-leyenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  list-style: none;
+  padding: 12px 0 0;
+  margin: 12px 0 0;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+}
+.g-leyenda li {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+}
+.g-leyenda small {
+  font-family: var(--font-mono);
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* G2 Línea temporal */
+.g2-dias {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+.g2-dias > li {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: baseline;
+  font-size: 13.5px;
+  margin: 0;
+}
+.g2-dias time {
+  font-family: var(--font-mono);
+  color: var(--muted);
+  font-size: 12px;
+}
+.g2-dias time b {
+  font-family: var(--font-heading);
+  color: var(--ink);
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  margin-right: 4px;
+}
+.g2-previo {
+  background: var(--surface-alt);
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+  border-radius: 4px;
+}
+.g2-corte {
+  grid-template-columns: 1fr !important;
+  padding: 4px 0 !important;
+  font-family: var(--font-heading);
+  font-size: 11px !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+.g2-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+.g2-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.g2-item small {
+  font-family: var(--font-mono);
+  color: var(--muted);
+  font-size: 11px;
+  margin-left: 6px;
+}
+.g2-item em {
+  display: block;
+  font-style: normal;
+  font-size: 12px;
+  color: var(--amber);
+}
+.g2-vacio {
+  color: var(--muted);
+  font-size: 12.5px;
+  font-style: italic;
+}
+
+/* Historias */
+.historia {
+  padding: 30px 0 10px;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 20px;
+}
+.historia-head {
+  margin-bottom: 14px;
+}
+.historia-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--area-color, var(--accent));
+  margin-bottom: 6px;
+}
+.historia h2 {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.24;
+  letter-spacing: -0.01em;
+  margin: 0 0 10px;
+  text-wrap: balance;
+}
+.historia-meta {
+  font-size: 13.5px;
+  color: var(--muted);
+  margin: 0 0 10px;
+}
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 16px;
+}
+.badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--surface-alt);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+.badge--estado {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: #B9D6CB;
+}
+.badge--evidencia {
+  background: var(--blue-soft);
+  color: var(--blue);
+  border-color: #C2D3EC;
+}
+.badge--acceso-restringido {
+  background: var(--amber-soft);
+  color: var(--amber);
+  border-color: var(--amber-border);
+}
+
+/* Cifras destacadas de la historia */
+.cifras {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0 0 18px;
+}
+.cifra {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--area-color, var(--accent));
+  border-radius: 6px;
+  padding: 8px 13px;
+}
+.cifra-valor {
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.cifra-etiqueta {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+.historia p {
+  margin: 0 0 16px;
+}
+
+/* Recuadros de límite, acción y vigilancia */
+.callout {
+  margin: 16px 0;
+  padding: 13px 16px;
+  border-radius: 0 8px 8px 0;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+}
+.callout p {
+  margin: 0;
+}
+.callout--limite {
+  border-left-color: var(--amber);
+  background: var(--amber-soft);
+}
+.callout--accion {
+  border-left-color: var(--accent);
+  background: var(--accent-soft);
+}
+.callout--vigilar {
+  border-left-color: var(--blue);
+  background: var(--blue-soft);
+}
+
+.historia-fuentes {
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--line);
+  font-size: 13.5px;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 10px;
+}
+.historia-fuentes-label {
+  font-family: var(--font-heading);
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+.historia-fuentes a {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+/* Cierre y fuentes */
+.cierre {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 2px solid var(--ink);
+}
+.cierre h3 {
+  font-family: var(--font-heading);
+  font-size: 21px;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+.cierre p {
+  margin: 0 0 16px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+a:hover { color: var(--ink); }
+a:focus-visible, summary:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.cite {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  margin-left: 2px;
+  white-space: nowrap;
+  text-decoration: none;
+  vertical-align: super;
+  color: var(--accent);
+}
+.cite::before { content: '['; }
+.cite::after { content: ']'; }
+
+details.fuentes-bloque {
+  margin-top: 28px;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+  font-size: 14.5px;
+}
+summary {
+  font-family: var(--font-heading);
+  cursor: pointer;
+  min-height: 44px;
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+.sources {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+}
+.sources li {
+  padding: 9px 10px;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px 12px;
+}
+.sources li:target {
+  background: var(--accent-soft);
+  outline: 2px solid var(--accent);
+}
+.sources a {
+  font-weight: 600;
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+}
+.source-meta {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--muted);
+}
+
+footer.colofon {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+}
+footer.colofon code {
+  font-family: inherit;
+  font-size: 11.5px;
+}
+
+@media (max-width: 680px) {
+  main { padding: 24px 16px 44px; }
+  body { font-size: 16px; line-height: 1.62; }
+  .hero h2 { font-size: 30px; }
+  .historia h2 { font-size: 22px; }
+  .vistazo-grid, .toc-list { grid-template-columns: 1fr; }
+  figure.g { padding: 14px 12px; }
+  .g1-grid { grid-template-columns: 92px repeat(5, minmax(66px, 1fr)); }
+  .g1-y, .g1-celda, .g1-x { padding: 5px 4px; font-size: 11px; }
+  .g1-celda .chip { width: 22px; height: 22px; font-size: 11px; }
+  .g2-dias > li { grid-template-columns: 1fr; gap: 4px; }
+  .cite {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 12px;
+    vertical-align: middle;
+    margin: 0;
+  }
+}
+
+/* ================================================================
+   Estilos específicos del Boletín PDF y de impresión
+   ================================================================ */
+.expediente-page {
+  padding: 20px 0 28px;
+  border-bottom: 1px solid var(--line);
+}
+.tabla-editorial {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  background: var(--surface);
+  margin: 12px 0 20px;
+}
+.tabla-editorial th, .tabla-editorial td {
+  border: 1px solid var(--line);
+  padding: 7px 9px;
+  text-align: left;
+  vertical-align: top;
+}
+.tabla-editorial th {
+  background: var(--surface-alt);
+  font-family: var(--font-heading);
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.def-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 14px 0 20px;
+}
+.def-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 13px;
+}
+.def-card h4 {
+  font-family: var(--font-heading);
+  margin: 0 0 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+.def-card dl { margin: 0; }
+.def-card dt { font-family: var(--font-heading); font-weight: 700; margin-top: 6px; }
+.def-card dt:first-child { margin-top: 0; }
+.def-card dd { margin: 1px 0 0; color: var(--muted); }
+
+@page {
+  size: A4;
+  margin: 13mm 14mm 14mm 14mm;
+}
+
+@media print {
+  body {
+    background: #FFFFFF;
+    font-size: 9.6pt;
+    line-height: 1.44;
+  }
+  main {
+    max-width: none;
+    padding: 0;
+  }
+  .masthead {
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+  }
+  .hero h1 { margin-bottom: 4px; font-size: 9pt; }
+  .hero h2 { font-size: 20pt; margin-bottom: 10px; }
+  .hero-meta { padding: 8px 12px; margin-bottom: 10px; font-size: 9pt; }
+  .hero-lead p { font-size: 10pt; line-height: 1.45; margin-bottom: 10px; }
+  .vistazo { margin: 12px 0 14px; }
+  .vistazo-titulo { margin-bottom: 6px; font-size: 8.5pt; }
+  .vistazo-card { padding: 9px 11px; font-size: 9pt; line-height: 1.38; }
+  figure.g { padding: 11px 13px; }
+  figure.g figcaption { margin-bottom: 8px; }
+  figure.g figcaption > strong { font-size: 12pt; }
+  .g-nota { font-size: 8.5pt; }
+  .g1-y, .g1-celda, .g1-x { padding: 4px 6px; min-height: 27px; font-size: 8.5pt; }
+  .g-leyenda { padding-top: 8px; margin-top: 8px; font-size: 8.5pt; gap: 5px 12px; }
+  .chip { width: 20px; height: 20px; font-size: 8pt; }
+  .chip--sm { width: 17px; height: 17px; font-size: 7.5pt; }
+  .def-grid { gap: 10px; margin: 8px 0 12px; }
+  .def-card { padding: 8px 11px; font-size: 8.5pt; line-height: 1.35; }
+  .def-card dt { margin-top: 4px; }
+  .g2-dias > li { padding: 5px 0; font-size: 8.8pt; grid-template-columns: 90px 1fr; }
+  .historia { padding: 14px 0 8px; }
+  .historia h2 { font-size: 13.5pt; break-after: avoid; margin-bottom: 5px; }
+  .historia-head { margin-bottom: 8px; break-after: avoid; }
+  .historia-meta { font-size: 9pt; margin-bottom: 6px; }
+  .historia-fuentes { margin-top: 8px; padding-top: 6px; font-size: 8.5pt; break-before: avoid; }
+  .historia-fuentes-label { font-size: 7.8pt; }
+  .historia-fuentes a { font-size: 8.2pt; }
+  h3, h4 { break-after: avoid; }
+  p { orphans: 3; widows: 3; margin-bottom: 10px; }
+  .callout { margin: 10px 0; padding: 9px 12px; }
+  .cifras { margin-bottom: 10px; gap: 8px; }
+  .cifra { padding: 5px 10px; }
+  .cifra-valor { font-size: 12.5pt; }
+  .tabla-editorial { font-size: 8.2pt; margin: 8px 0 0; }
+  .tabla-editorial th, .tabla-editorial td { padding: 4px 6px; }
+  .sources li { padding: 3px 4px; font-size: 8.2pt; gap: 2px 8px; }
+  .sources a { min-height: 0; }
+  .source-meta { font-size: 7.5pt; }
+  footer.colofon { margin-top: 12px; padding-top: 8px; font-size: 8pt; }
+  .callout, figure.g, .def-card, .vistazo-card {
+    break-inside: avoid;
+  }
+  details.fuentes-bloque { display: block; }
+  details.fuentes-bloque > * { display: block; }
+  details.fuentes-bloque > summary { display: none; }
+  .cite { font-size: 8pt; }
+  .page-break { break-before: page; }
+  .expediente-page { border-bottom: 0; padding: 0; }
+  .watermark {
+    position: fixed;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-32deg);
+    font-family: var(--font-heading);
+    font-size: 32pt;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: rgba(138, 83, 17, 0.06);
+    pointer-events: none;
+    z-index: 9999;
+    white-space: nowrap;
+  }
+}
+
+    /* Estilos específicos de la portada web (GitHub Pages) */
+    .hero-portada {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 28px 28px 24px;
+      margin: 8px 0 32px;
+    }
+    .hero-portada h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.75rem, 1.2rem + 2.2vw, 2.55rem);
+      font-weight: 700;
+      line-height: 1.16;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      margin: 6px 0 12px;
+      text-wrap: balance;
+    }
+    .hero-portada-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-heading);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-heading);
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      padding: 10px 18px;
+      border-radius: 7px;
+      text-decoration: none;
+      border: 1px solid var(--accent);
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .btn--primary {
+      background: var(--accent);
+      color: #FFFFFF;
+    }
+    .btn--primary:hover {
+      background: #0F4738;
+      color: #FFFFFF;
+    }
+    .btn--secondary {
+      background: var(--surface);
+      color: var(--accent);
+    }
+    .btn--secondary:hover {
+      background: var(--accent-soft);
+      color: var(--ink);
+    }
+    .btn--ghost {
+      background: transparent;
+      border-color: var(--line);
+      color: var(--muted);
+    }
+    .btn--ghost:hover {
+      border-color: var(--ink);
+      color: var(--ink);
+    }
+
+    .section-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      margin: 34px 0 14px;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 8px;
+    }
+    .section-head h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.25rem, 1rem + 0.9vw, 1.55rem);
+      font-weight: 700;
+      margin: 0;
+    }
+    .section-head span {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Tarjetas de edición con container queries */
+    .editions-list {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 16px;
+    }
+    article.edition-card {
+      container-type: inline-size;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 20px 22px;
+      display: grid;
+      gap: 10px;
+    }
+    article.edition-card header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    article.edition-card h3 {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.25;
+      margin: 4px 0 0;
+      width: 100%;
+    }
+    article.edition-card h3 a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+    article.edition-card h3 a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    article.edition-card p {
+      margin: 0;
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    article.edition-card footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 16px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--line);
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+    }
+    article.edition-card footer a {
+      font-weight: 600;
+    }
+    article.edition-card footer a span {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+    }
+    @container (min-width: 560px) {
+      article.edition-card footer {
+        justify-content: flex-start;
+      }
+    }
+
+    /* Bloque de Guía de lectura */
+    article.guia-banner {
+      container-type: inline-size;
+      background: var(--accent-soft);
+      border: 1px solid #B9D6CB;
+      border-left: 4px solid var(--accent);
+      border-radius: 10px;
+      padding: 20px 22px;
+      margin: 28px 0;
+      display: grid;
+      gap: 12px;
+    }
+    article.guia-banner header h2 {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 700;
+      margin: 4px 0 0;
+      color: var(--ink);
+    }
+    article.guia-banner p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--ink);
+    }
+    article.guia-banner footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    @container (min-width: 600px) {
+      article.guia-banner {
+        grid-template-columns: 1fr auto;
+        align-items: center;
+      }
+      article.guia-banner header,
+      article.guia-banner p {
+        grid-column: 1;
+      }
+      article.guia-banner footer {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        align-self: center;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header class="masthead">
+    <div class="brand">
+      <svg class="logo" width="40" height="40" viewBox="0 0 40 40" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M3 8.5h9l2.8-5 3.8 9 2.8-6 2 2H37" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><polygon points="20,13 33,19 20,25 7,19" fill="currentColor" opacity=".28"/><polygon points="7,19 20,25 20,28.2 7,22.2" fill="currentColor" opacity=".95"/><polygon points="33,19 20,25 20,28.2 33,22.2" fill="currentColor" opacity=".65"/><polygon points="7,24.2 20,30.2 20,33.4 7,27.4" fill="currentColor" opacity=".78"/><polygon points="33,24.2 20,30.2 20,33.4 33,27.4" fill="currentColor" opacity=".48"/><polygon points="7,29.4 20,35.4 20,38.5 7,32.5" fill="currentColor" opacity=".55"/><polygon points="33,29.4 20,35.4 20,38.5 33,32.5" fill="currentColor" opacity=".32"/></svg>
+      <div>
+        <div class="brand-name">Pulso 3D · Boletín semanal</div>
+        <div class="brand-sub">Lo que cambia en impresión 3D y cómo llevarlo al taller · Español</div>
+      </div>
+    </div>
+  </header>
+
+  
+  <section class="hero-portada" aria-labelledby="destacada-h">
+    <div class="hero-portada-kicker">
+      <span>Última edición · Pulso 3D · Piloto 02</span>
+      <span>· 21–29 de octubre de 2026</span>
+      
+      <span class="status-pill status-pill--ok">Edición publicada</span>
+      
+    </div>
+    <h1 id="destacada-h">Del equipo al proceso: las condiciones que hacen útil una novedad</h1>
+
+    
+    <div class="hero-lead" style="margin-bottom:14px">
+      <p>Esta entrega conecta el taller de escritorio con los materiales industriales y la formación. La pregunta editorial es qué condiciones acompañan a cada capacidad anunciada. El cambio de un componente, la actualización de un laminador o una inversión industrial merecen atención cuando entendemos su alcance. Reunimos siete historias y distinguimos disponibilidad, investigación y planes futuros.</p>
+    </div>
+    
+
+    
+    <div class="vistazo" style="margin:16px 0">
+      <div class="vistazo-titulo">En un vistazo (7 historias en esta entrega)</div>
+      <ul class="vistazo-grid">
+        
+        <li class="vistazo-card">
+          <span class="vistazo-tag">Equipo y materiales</span>
+          <div>Prusa anuncia un hotend de 400 °C; la cámara sigue condicionando los materiales que pueden aprovecharlo.<a href="https://blog.prusa3d.com/ht-hotend-is-out-plus-we-offer-new-materials-and-hightemp-sheets-for-core-one-l_138625/" target="_blank" rel="noopener noreferrer" title="[1] Prusa · HT Hotend" style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11px;font-weight:700;color:#16624E;text-decoration:none;vertical-align:super;">[1]</a></div>
+        </li>
+        
+        <li class="vistazo-card">
+          <span class="vistazo-tag">Software</span>
+          <div>OrcaSlicer incorpora obstáculos tridimensionales en una beta con excepciones documentadas.<a href="https://github.com/OrcaSlicer/OrcaSlicer/releases/tag/v2.5.0-beta" target="_blank" rel="noopener noreferrer" title="[2] OrcaSlicer · 2.5.0 Beta" style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11px;font-weight:700;color:#16624E;text-decoration:none;vertical-align:super;">[2]</a></div>
+        </li>
+        
+        <li class="vistazo-card">
+          <span class="vistazo-tag">Comunidad</span>
+          <div>Unicamp presenta un manual nacido de un diagnóstico en tres escuelas de Campinas; una muestra local para aprender, sin extrapolarla a todo Brasil.<a href="https://www.plasma.unicamp.br/2026/10/23/impressao-3d-e-fabricacao-digital-nas-escolas-publicas-alunas-do-pibic-em-desenvolvem-manual-orientativo-no-espaco-maker-do-plasma/" target="_blank" rel="noopener noreferrer" title="[9] Plasma–Unicamp · manual escolar" style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11px;font-weight:700;color:#16624E;text-decoration:none;vertical-align:super;">[9]</a></div>
+        </li>
+        
+      </ul>
+    </div>
+    
+
+    <div class="cta-row">
+      <a class="btn btn--primary" href="ediciones/piloto-02-2026-10-29/salida/pulso3d_piloto02_v2.html">Leer boletín web →</a>
+      <a class="btn btn--secondary" href="ediciones/piloto-02-2026-10-29/salida/pulso3d_piloto02_expediente.pdf">Descargar PDF (5 págs.)</a>
+      <a class="btn btn--ghost" href="ediciones/piloto-02-2026-10-29/salida/pulso3d_piloto02_correo.html">Versión correo HTML</a>
+    </div>
+  </section>
+  
+
+  <article class="guia-banner" aria-labelledby="guia-h">
+    <header>
+      <div class="historia-kicker" style="margin-bottom:2px">Referencia para suscriptores</div>
+      <h2 id="guia-h">Guía de lectura: cómo separamos madurez tecnológica y evidencia</h2>
+    </header>
+    <p>
+      Un anuncio comercial no equivale a una instalación operativa y un artículo revisado por pares puede describir solo un prototipo de laboratorio. Consulta nuestra guía de una página para interpretar la matriz y las señales prácticas de cada edición.
+    </p>
+    <footer>
+      <a class="btn btn--secondary" href="docs/pulso3d_guia_lectura.html">Ver guía web</a>
+      <a class="btn btn--ghost" href="docs/pulso3d_guia_lectura.pdf">PDF (1 pág.)</a>
+    </footer>
+  </article>
+
+  <section aria-labelledby="archivo-h">
+    <div class="section-head">
+      <h2 id="archivo-h">Archivo de ediciones</h2>
+      <span>3 entregas disponibles</span>
+    </div>
+
+    <div class="editions-list">
+      
+      <article class="edition-card">
+        <header>
+          <span class="historia-kicker" style="margin:0">Pulso 3D · Piloto 02 · 21–29 de octubre de 2026 · 7 historias</span>
+          
+          <span class="status-pill status-pill--ok">Publicada</span>
+          
+          <h3><a href="ediciones/piloto-02-2026-10-29/salida/pulso3d_piloto02_v2.html">Del equipo al proceso: las condiciones que hacen útil una novedad</a></h3>
+        </header>
+        <p>Prusa · HT Hotend · OrcaSlicer · colisiones · X-Hinges · sensado · Lithoz · Performance Pack · HP–Hyperion · WC · Precision Resource · expansión · Unicamp · escuelas</p>
+        <footer>
+          <a href="ediciones/piloto-02-2026-10-29/salida/pulso3d_piloto02_v2.html">Boletín web<span> · Pulso 3D · Piloto 02</span></a>
+          <a href="ediciones/piloto-02-2026-10-29/salida/pulso3d_piloto02_expediente.pdf">Boletín PDF (5 págs.)<span> · Pulso 3D · Piloto 02</span></a>
+          <a href="ediciones/piloto-02-2026-10-29/salida/pulso3d_piloto02_correo.html">Plantilla correo<span> · Pulso 3D · Piloto 02</span></a>
+        </footer>
+      </article>
+      
+      <article class="edition-card">
+        <header>
+          <span class="historia-kicker" style="margin:0">Pulso 3D · 28 de octubre de 2026 · 3 historias</span>
+          
+          <span class="status-pill">Edición piloto</span>
+          
+          <h3><a href="ediciones/actualizacion-2026-10-28/salida/pulso3d_actualizacion_v2.html">Del material al proceso: lo que falta entre anunciar y fabricar</a></h3>
+        </header>
+        <p>Carburo de tungsteno: HP y Hyperion anuncian un acuerdo comercial · Materialise: crecimiento agregado, trayectorias distintas · Del residuo al filamento: no basta con una extrusora</p>
+        <footer>
+          <a href="ediciones/actualizacion-2026-10-28/salida/pulso3d_actualizacion_v2.html">Boletín web<span> · Pulso 3D</span></a>
+          <a href="ediciones/actualizacion-2026-10-28/salida/pulso3d_actualizacion_expediente.pdf">Boletín PDF (3 págs.)<span> · Pulso 3D</span></a>
+          <a href="ediciones/actualizacion-2026-10-28/salida/pulso3d_actualizacion_correo.html">Plantilla correo<span> · Pulso 3D</span></a>
+        </footer>
+      </article>
+      
+      <article class="edition-card">
+        <header>
+          <span class="historia-kicker" style="margin:0">Pulso 3D · Piloto 01 · 21–27 de octubre de 2026 · 6 historias</span>
+          
+          <span class="status-pill">Edición piloto</span>
+          
+          <h3><a href="ediciones/piloto-01-2026-10-28/salida/pulso3d_piloto01_v2.html">Imprimir funciones, no solo formas</a></h3>
+        </header>
+        <p>X-Hinges · OrcaSlicer 2.5 Beta · Pluraprint 6.5 · Kratos · AMCM M 8K · La Rioja · calzado · Monocristales Ti-6Al-4V</p>
+        <footer>
+          <a href="ediciones/piloto-01-2026-10-28/salida/pulso3d_piloto01_v2.html">Boletín web<span> · Pulso 3D · Piloto 01</span></a>
+          <a href="ediciones/piloto-01-2026-10-28/salida/pulso3d_piloto01_expediente.pdf">Boletín PDF (5 págs.)<span> · Pulso 3D · Piloto 01</span></a>
+          <a href="ediciones/piloto-01-2026-10-28/salida/pulso3d_piloto01_correo.html">Plantilla correo<span> · Pulso 3D · Piloto 01</span></a>
+        </footer>
+      </article>
+      
+    </div>
+  </section>
+
+  <footer class="colofon">
+    <span>Pulso 3D · Boletín semanal en español sobre fabricación aditiva</span>
+    <span>Equipos · Materiales · Software · Investigación · Comunidad</span>
+  </footer>
+</main>
+</body>
+</html>
