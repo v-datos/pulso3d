@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "site_url": "https://v-datos.github.io/pulso3d",
+  "ediciones": [
+    "piloto-02-2026-10-29"
+  ],
+  "archivos": [
+    ".nojekyll",
+    "assets/fonts/ChakraPetch-Bold.ttf",
+    "assets/fonts/ChakraPetch-Italic.ttf",
+    "assets/fonts/ChakraPetch-Medium.ttf",
+    "assets/fonts/ChakraPetch-SemiBold.ttf",
+    "assets/fonts/Exo2-VF.ttf",
+    "assets/fonts/JetBrainsMono-Italic-VF.ttf",
+    "assets/fonts/JetBrainsMono-VF.ttf",
+    "assets/fonts/OFL-ChakraPetch.txt",
+    "assets/fonts/OFL-Exo2.txt",
+    "assets/fonts/OFL-JetBrainsMono.txt",
+    "assets/fonts/OFL-PlusJakartaSans.txt",
+    "assets/fonts/PlusJakartaSans-Italic-VF.ttf",
+    "assets/fonts/PlusJakartaSans-VF.ttf",
+    "docs/pulso3d_guia_lectura.html",
+    "docs/pulso3d_guia_lectura.pdf",
+    "ediciones/piloto-02-2026-10-29/salida/pulso3d_piloto02_correo.html",
+    "ediciones/piloto-02-2026-10-29/salida/pulso3d_piloto02_expediente.pdf",
+    "ediciones/piloto-02-2026-10-29/salida/pulso3d_piloto02_v2.html",
+    "index.html",
+    "publicacion.json"
+  ]
+}
