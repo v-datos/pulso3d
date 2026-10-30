@@ -1111,52 +1111,7 @@ footer.colofon code {
       }
     }
 
-    /* Bloque de Guía de lectura */
-    article.guia-banner {
-      container-type: inline-size;
-      background: var(--accent-soft);
-      border: 1px solid #B9D6CB;
-      border-left: 4px solid var(--accent);
-      border-radius: 10px;
-      padding: 20px 22px;
-      margin: 28px 0;
-      display: grid;
-      gap: 12px;
-    }
-    article.guia-banner header h2 {
-      font-family: var(--font-heading);
-      font-size: 20px;
-      font-weight: 700;
-      margin: 4px 0 0;
-      color: var(--ink);
-    }
-    article.guia-banner p {
-      margin: 0;
-      font-size: 15px;
-      line-height: 1.55;
-      color: var(--ink);
-    }
-    article.guia-banner footer {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    @container (min-width: 600px) {
-      article.guia-banner {
-        grid-template-columns: 1fr auto;
-        align-items: center;
-      }
-      article.guia-banner header,
-      article.guia-banner p {
-        grid-column: 1;
-      }
-      article.guia-banner footer {
-        grid-column: 2;
-        grid-row: 1 / span 2;
-        align-self: center;
-        align-items: center;
-      }
-    }
+    /* Estilos de portada */
   </style>
 </head>
 <body>
@@ -1219,20 +1174,6 @@ footer.colofon code {
     </div>
   </section>
   
-
-  <article class="guia-banner" aria-labelledby="guia-h">
-    <header>
-      <div class="historia-kicker" style="margin-bottom:2px">Referencia para suscriptores</div>
-      <h2 id="guia-h">Guía de lectura: cómo separamos madurez tecnológica y evidencia</h2>
-    </header>
-    <p>
-      Un anuncio comercial no equivale a una instalación operativa y un artículo revisado por pares puede describir solo un prototipo de laboratorio. Consulta nuestra guía de una página para interpretar la matriz y las señales prácticas de cada edición.
-    </p>
-    <footer>
-      <a class="btn btn--secondary" href="docs/pulso3d_guia_lectura.html">Ver guía web</a>
-      <a class="btn btn--ghost" href="docs/pulso3d_guia_lectura.pdf">PDF (1 pág.)</a>
-    </footer>
-  </article>
 
   <section aria-labelledby="archivo-h">
     <div class="section-head">
