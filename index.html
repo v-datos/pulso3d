@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
   <title>Pulso 3D · Boletín semanal en español sobre fabricación aditiva</title>
   <meta name="description" content="Boletín semanal en español sobre impresión 3D y fabricación aditiva para makers avanzados, diseñadores, ingenieros y talleres. Qué cambió, qué está demostrado y cómo llevarlo al taller.">
   <style>
@@ -71,7 +72,7 @@
 }
 
 :root {
-  color-scheme: light;
+  color-scheme: light dark;
   --paper: #F6F5F1;
   --surface: #FFFFFF;
   --surface-alt: #EFECE6;
@@ -91,6 +92,24 @@
   --font-heading: 'Chakra Petch', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #121615;
+    --surface: #1B211F;
+    --surface-alt: #242B28;
+    --ink: #E7EDE9;
+    --muted: #9BA7A1;
+    --accent: #2AB38F;
+    --accent-soft: #17342B;
+    --amber: #EAA036;
+    --amber-soft: #2E2111;
+    --amber-border: #99641E;
+    --blue: #6496ED;
+    --blue-soft: #162640;
+    --line: #2D3734;
+  }
 }
 
 * { box-sizing: border-box; }
@@ -865,6 +884,22 @@ footer.colofon code {
 }
 
 @media print {
+  :root {
+    color-scheme: light !important;
+    --paper: #FFFFFF !important;
+    --surface: #FFFFFF !important;
+    --surface-alt: #F6F5F1 !important;
+    --ink: #1D2321 !important;
+    --muted: #535F5A !important;
+    --accent: #16624E !important;
+    --accent-soft: #E5EFEA !important;
+    --amber: #8A5311 !important;
+    --amber-soft: #FAF1E2 !important;
+    --amber-border: #D9A45B !important;
+    --blue: #2B4C91 !important;
+    --blue-soft: #EAF0F9 !important;
+    --line: #D5DBD5 !important;
+  }
   body {
     background: #FFFFFF;
     font-size: 9.6pt;
