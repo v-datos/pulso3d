@@ -2,6 +2,7 @@
   "version": 1,
   "site_url": "https://v-datos.github.io/pulso3d",
   "ediciones": [
+    "edicion-03-2026-10-30",
     "piloto-02-2026-10-29"
   ],
   "archivos": [
@@ -21,6 +22,9 @@
     "assets/fonts/PlusJakartaSans-VF.ttf",
     "docs/pulso3d_guia_lectura.html",
     "docs/pulso3d_guia_lectura.pdf",
+    "ediciones/edicion-03-2026-10-30/salida/pulso3d_edicion03_correo.html",
+    "ediciones/edicion-03-2026-10-30/salida/pulso3d_edicion03_expediente.pdf",
+    "ediciones/edicion-03-2026-10-30/salida/pulso3d_edicion03_v2.html",
     "ediciones/piloto-02-2026-10-29/salida/pulso3d_piloto02_correo.html",
     "ediciones/piloto-02-2026-10-29/salida/pulso3d_piloto02_expediente.pdf",
     "ediciones/piloto-02-2026-10-29/salida/pulso3d_piloto02_v2.html",
