@@ -3,6 +3,7 @@
   "site_url": "https://v-datos.github.io/pulso3d",
   "ediciones": [
     "edicion-03-2026-10-30",
+    "edicion-04-2026-11-06",
     "piloto-02-2026-10-29"
   ],
   "archivos": [
@@ -25,6 +26,9 @@
     "ediciones/edicion-03-2026-10-30/salida/pulso3d_edicion03_correo.html",
     "ediciones/edicion-03-2026-10-30/salida/pulso3d_edicion03_expediente.pdf",
     "ediciones/edicion-03-2026-10-30/salida/pulso3d_edicion03_v2.html",
+    "ediciones/edicion-04-2026-11-06/salida/pulso3d_edicion04_correo.html",
+    "ediciones/edicion-04-2026-11-06/salida/pulso3d_edicion04_expediente.pdf",
+    "ediciones/edicion-04-2026-11-06/salida/pulso3d_edicion04_v2.html",
     "ediciones/piloto-02-2026-10-29/salida/pulso3d_piloto02_correo.html",
     "ediciones/piloto-02-2026-10-29/salida/pulso3d_piloto02_expediente.pdf",
     "ediciones/piloto-02-2026-10-29/salida/pulso3d_piloto02_v2.html",
