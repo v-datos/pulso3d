@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <title>Pulso 3D · Boletín semanal en español sobre fabricación aditiva</title>
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
   <meta name="description" content="Boletín semanal en español sobre impresión 3D y fabricación aditiva para makers avanzados, diseñadores, ingenieros y talleres. Qué cambió, qué está demostrado y cómo llevarlo al taller.">
   <style>
     @font-face {
@@ -85,6 +89,8 @@
   --amber-border: #D9A45B;
   --blue: #2B4C91;
   --blue-soft: #EAF0F9;
+  --error: #B42318;
+  --error-soft: #FEF3F2;
   --line: #D5DBD5;
 
   /* Jerarquía de fuentes OFL para impresión 3D y manufactura aditiva */
@@ -108,6 +114,8 @@
     --amber-border: #99641E;
     --blue: #6496ED;
     --blue-soft: #162640;
+    --error: #FCA5A5;
+    --error-soft: #3B181A;
     --line: #2D3734;
   }
 }
@@ -801,6 +809,176 @@ footer.colofon code {
   font-size: 11.5px;
 }
 
+.visually-hidden:where(:not(:focus-within, :active)) {
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 11px 20px;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  border-radius: 7px;
+  text-decoration: none;
+  border: 1.5px solid var(--accent);
+  cursor: pointer;
+  appearance: none;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.btn--primary {
+  background: #16624E;
+  border-color: #16624E;
+  color: #FFFFFF;
+}
+.btn--primary:hover {
+  background: #0F4738;
+  border-color: #0F4738;
+  color: #FFFFFF;
+}
+.btn--secondary {
+  background: var(--surface);
+  color: var(--accent);
+}
+.btn--secondary:hover {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+.btn--ghost {
+  background: transparent;
+  border-color: var(--muted);
+  color: var(--ink);
+}
+.btn--ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.btn[disabled] {
+  opacity: 0.65;
+  cursor: progress;
+}
+
+.subscribe-box {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  border-radius: 10px;
+  padding: 22px 24px;
+  margin-top: 32px;
+}
+.subscribe-box h2 {
+  font-family: var(--font-heading);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 6px;
+}
+.subscribe-lead {
+  margin: 0 0 14px;
+  font-size: 14.5px;
+  color: var(--muted);
+}
+.subscribe-form {
+  display: grid;
+  gap: 10px;
+}
+.subscribe-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px;
+}
+.subscribe-field {
+  flex: 1 1 260px;
+  display: grid;
+  gap: 4px;
+}
+.subscribe-label {
+  font-family: var(--font-heading);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.subscribe-hint {
+  font-size: 13px;
+  color: var(--muted);
+}
+.subscribe-input {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 14px;
+  font: inherit;
+  font-size: max(1rem, 1em);
+  line-height: 1.4;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1.5px solid var(--muted);
+  border-radius: 7px;
+}
+.subscribe-input:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+.subscribe-box :is(input, button, a):focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+.subscribe-input:is(:user-invalid, .user-invalid-fallback) {
+  border-color: var(--error);
+  background: var(--error-soft);
+}
+.subscribe-error {
+  display: none;
+  margin-top: 2px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: var(--error-soft);
+  color: var(--error);
+  font-size: 13.5px;
+  font-weight: 600;
+}
+.subscribe-error.is-visible {
+  display: block;
+}
+.subscribe-status {
+  min-height: 1.4em;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+}
+.subscribe-status.is-error {
+  color: var(--error);
+}
+.subscribe-note {
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+.subscribe-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+@media (pointer: coarse) {
+  .subscribe-input, .subscribe-box .btn {
+    min-height: 52px;
+  }
+}
+
 @media (max-width: 680px) {
   main { padding: 24px 16px 44px; }
   body { font-size: 16px; line-height: 1.62; }
@@ -961,6 +1139,7 @@ footer.colofon code {
   .cite { font-size: 8pt; }
   .page-break { break-before: page; }
   .expediente-page { border-bottom: 0; padding: 0; }
+  .subscribe-box { display: none; }
   .watermark {
     position: fixed;
     top: 48%;
@@ -1012,45 +1191,6 @@ footer.colofon code {
       flex-wrap: wrap;
       gap: 10px;
       margin-top: 20px;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-heading);
-      font-size: 13.5px;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      padding: 10px 18px;
-      border-radius: 7px;
-      text-decoration: none;
-      border: 1px solid var(--accent);
-      transition: background 0.15s ease, color 0.15s ease;
-    }
-    .btn--primary {
-      background: var(--accent);
-      color: #FFFFFF;
-    }
-    .btn--primary:hover {
-      background: #0F4738;
-      color: #FFFFFF;
-    }
-    .btn--secondary {
-      background: var(--surface);
-      color: var(--accent);
-    }
-    .btn--secondary:hover {
-      background: var(--accent-soft);
-      color: var(--ink);
-    }
-    .btn--ghost {
-      background: transparent;
-      border-color: var(--line);
-      color: var(--muted);
-    }
-    .btn--ghost:hover {
-      border-color: var(--ink);
-      color: var(--ink);
     }
 
     .section-head {
@@ -1217,6 +1357,7 @@ footer.colofon code {
     <div class="cta-row">
       <a class="btn btn--primary" href="ediciones/edicion-05-2026-11-13/salida/pulso3d_edicion05_v2.html">Leer boletín web →</a>
       <a class="btn btn--secondary" href="ediciones/edicion-05-2026-11-13/salida/pulso3d_edicion05_expediente.pdf">Descargar PDF (8 págs.)</a>
+      <a class="btn btn--ghost" href="#suscripcion">Suscribirse por correo</a>
     </div>
   </section>
   
@@ -1291,6 +1432,20 @@ footer.colofon code {
       
     </div>
   </section>
+
+  <section class="subscribe-box" id="suscripcion">
+  <h2 id="subscribe-heading">Suscripción por correo en preparación</h2>
+
+  
+  <p class="subscribe-lead">Estamos habilitando el formulario público de suscripción para enviar cada nueva entrega semanal por correo electrónico en copia oculta.</p>
+  
+
+  <p class="subscribe-note">
+    Buzón automatizado de solo salida: Megabyte no recibe ni lee respuestas por correo electrónico.
+  </p>
+
+  
+</section>
 
   <footer class="colofon colofon--portada">
     <span>Impresion 3D · Fabricación Aditiva · Equipos · Materiales · Software · Investigación · Comunidad</span>

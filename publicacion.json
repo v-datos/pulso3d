@@ -9,6 +9,10 @@
   ],
   "archivos": [
     ".nojekyll",
+    "assets/apple-touch-icon.png",
+    "assets/favicon-32.png",
+    "assets/favicon.ico",
+    "assets/favicon.svg",
     "assets/fonts/ChakraPetch-Bold.ttf",
     "assets/fonts/ChakraPetch-Italic.ttf",
     "assets/fonts/ChakraPetch-Medium.ttf",
@@ -36,6 +40,7 @@
     "ediciones/piloto-02-2026-10-29/salida/pulso3d_piloto02_correo.html",
     "ediciones/piloto-02-2026-10-29/salida/pulso3d_piloto02_expediente.pdf",
     "ediciones/piloto-02-2026-10-29/salida/pulso3d_piloto02_v2.html",
+    "favicon.ico",
     "index.html",
     "publicacion.json"
   ]
