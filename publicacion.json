@@ -5,6 +5,7 @@
     "edicion-03-2026-10-30",
     "edicion-04-2026-11-06",
     "edicion-05-2026-11-13",
+    "edicion-06-2026-11-20",
     "piloto-02-2026-10-29"
   ],
   "archivos": [
@@ -37,6 +38,9 @@
     "ediciones/edicion-05-2026-11-13/salida/pulso3d_edicion05_correo.html",
     "ediciones/edicion-05-2026-11-13/salida/pulso3d_edicion05_expediente.pdf",
     "ediciones/edicion-05-2026-11-13/salida/pulso3d_edicion05_v2.html",
+    "ediciones/edicion-06-2026-11-20/salida/pulso3d_edicion06_correo.html",
+    "ediciones/edicion-06-2026-11-20/salida/pulso3d_edicion06_expediente.pdf",
+    "ediciones/edicion-06-2026-11-20/salida/pulso3d_edicion06_v2.html",
     "ediciones/piloto-02-2026-10-29/salida/pulso3d_piloto02_correo.html",
     "ediciones/piloto-02-2026-10-29/salida/pulso3d_piloto02_expediente.pdf",
     "ediciones/piloto-02-2026-10-29/salida/pulso3d_piloto02_v2.html",
